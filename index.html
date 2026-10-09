@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>耀州窑青釉刻花瓶 · 文物知识库</title>
+<style>
+  :root {
+    --ink: #2c2c28;
+    --muted: #8a887c;
+    --paper: #f5f4ee;
+    --card: #ffffff;
+    --line: #e6e4d9;
+    --celadon: #6f7d5c;
+    --celadon-deep: #3d4a38;
+    --celadon-soft: #eef0e6;
+    --amber: #8a6d3b;
+    --amber-soft: #f3ecdd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font: 14px/1.7 "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  }
+  h1, h2, h3 { font-family: "Noto Serif SC", "Source Han Serif SC", "STSong", "SimSun", serif; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 40px 20px 60px; }
+  .hidden { display: none !important; }
+
+  .banner {
+    background: #fdecea; color: #a33a2e; border: 1px solid #f3c8c2;
+    border-radius: 10px; padding: 14px 18px; margin: 24px auto; max-width: 920px;
+    font-size: 14px;
+  }
+  .banner code { background: #fff; padding: 2px 6px; border-radius: 4px; }
+
+  .eyebrow { color: var(--muted); letter-spacing: 2px; font-size: 12px; margin-bottom: 8px; }
+  h1 { font-size: 30px; color: var(--celadon-deep); margin-bottom: 12px; letter-spacing: 1px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .badge {
+    background: var(--celadon-soft); color: var(--celadon-deep);
+    border: 1px solid #dde2d2; border-radius: 999px; padding: 3px 14px; font-size: 13px;
+  }
+
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+  .kpi {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .kpi b { display: block; font-size: 20px; font-family: Georgia, serif; color: var(--celadon-deep); }
+  .kpi span { font-size: 12px; color: var(--muted); }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 24px 26px; margin-top: 20px;
+  }
+  .card > h2 { font-size: 19px; color: var(--celadon-deep); display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px; }
+  .card > h2::before { content: ""; width: 4px; height: 18px; background: var(--celadon); border-radius: 2px; align-self: center; }
+  .card > h2 .n { font-size: 12px; color: var(--muted); font-family: sans-serif; font-weight: normal; }
+
+  .steps { display: flex; flex-wrap: wrap; align-items: center; row-gap: 10px; }
+  .step {
+    background: var(--celadon-soft); border: 1px solid #dde2d2; border-radius: 999px;
+    padding: 3px 13px; font-size: 13px; color: var(--celadon-deep);
+  }
+  .step-arrow { color: #b9bfa9; margin: 0 8px; font-size: 13px; }
+
+  .toolbar { display: flex; align-items: center; gap: 14px; margin: 26px 0 4px; }
+  #q {
+    flex: 1; padding: 11px 16px; font-size: 14px; color: var(--ink);
+    border: 1px solid var(--line); border-radius: 999px; background: var(--card); outline: none;
+  }
+  #q:focus { border-color: var(--celadon); box-shadow: 0 0 0 3px rgba(111,125,92,.12); }
+  .count { color: var(--muted); font-size: 13px; white-space: nowrap; }
+
+  h3.cat { font-size: 15px; color: var(--celadon); margin: 18px 0 4px; }
+  .row {
+    display: grid; grid-template-columns: 130px 1fr auto; gap: 14px; align-items: baseline;
+    padding: 10px 0; border-bottom: 1px dashed var(--line);
+  }
+  .row:last-child { border-bottom: none; }
+  .row .f { color: var(--celadon-deep); font-weight: 600; font-size: 13px; }
+  .row .v { font-size: 14px; }
+  .row .s {
+    background: var(--amber-soft); color: var(--amber); border-radius: 999px;
+    padding: 1px 10px; font-size: 12px; white-space: nowrap; max-width: 260px;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .row.hide, h3.cat.hide, .card.hide { display: none; }
+
+  .foot { color: var(--muted); font-size: 12px; text-align: center; margin-top: 36px; }
+  .loading { color: var(--muted); text-align: center; padding: 60px 0; }
+
+  @media (max-width: 640px) {
+    .row { grid-template-columns: 1fr; gap: 2px; padding: 12px 0; }
+    .row .s { justify-self: start; }
+    h1 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<div id="error" class="banner hidden"></div>
+<main class="wrap">
+  <p class="loading" id="loading">正在从 API 加载数据…</p>
+
+  <header id="header" class="hidden">
+    <p class="eyebrow">文物知识库 · 由 API 实时渲染</p>
+    <h1 id="art-name"></h1>
+    <div id="badges" class="badges"></div>
+    <div id="kpis" class="kpis"></div>
+  </header>
+
+  <section id="process" class="card hidden">
+    <h2>制瓷工序 <span class="n" id="step-n"></span></h2>
+    <div id="steps" class="steps"></div>
+  </section>
+
+  <section class="toolbar hidden" id="toolbar">
+    <input id="q" type="search" placeholder="搜索字段 / 描述 / 来源，如：牡丹、刻花、姜黄…">
+    <span id="count" class="count"></span>
+  </section>
+
+  <div id="sections"></div>
+
+  <footer class="foot">数据来源：故宫博物院 · 陕西省地方志办公室 · 耀州窑考古研究 等公开资料 ｜ 数据接口 /api/v1</footer>
+</main>
+
+<script>
+const API = "http://127.0.0.1:8000";
+const $ = (sel) => document.querySelector(sel);
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, (c) => (
+    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+  ));
+}
+
+async function getJSON(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(url + " -> " + res.status);
+  const body = await res.json();
+  if (body.code !== 0) throw new Error(body.message);
+  return body.data;
+}
+
+function kpi(value, label) {
+  return `<div class="kpi"><b>${esc(value)}</b><span>${esc(label)}</span></div>`;
+}
+
+function render(data) {
+  $("#loading").classList.add("hidden");
+
+  $("#art-name").textContent = data.name;
+  const badges = [data.dynasty, data.kiln, data.museum, "编号 " + data.inventory_number, data.record_count + " 条知识条目"];
+  $("#badges").innerHTML = badges.map((b) => `<span class="badge">${esc(b)}</span>`).join("");
+
+  const d = data.dimensions_cm || {};
+  const t = data.burn_temperature_c || {};
+  $("#kpis").innerHTML = [
+    d.height != null ? kpi(d.height + " cm", "通高") : "",
+    d.mouth != null ? kpi(d.mouth + " cm", "口径") : "",
+    d.foot != null ? kpi(d.foot + " cm", "足径") : "",
+    t.min != null ? kpi(t.min + "–" + t.max + " ℃", "烧成温度") : "",
+  ].join("");
+  $("#header").classList.remove("hidden");
+
+  const steps = data.process_steps || [];
+  if (steps.length) {
+    $("#step-n").textContent = "共 " + steps.length + " 道";
+    $("#steps").innerHTML = steps
+      .map((s, i) => `<span class="step">${esc(s)}</span>` + (i < steps.length - 1 ? '<span class="step-arrow">→</span>' : ""))
+      .join("");
+    $("#process").classList.remove("hidden");
+  }
+
+  const box = $("#sections");
+  for (const [section, records] of Object.entries(data.records_by_section)) {
+    // 类别分组（保持首次出现顺序）
+    const groups = new Map();
+    for (const r of records) {
+      if (!groups.has(r.category)) groups.set(r.category, []);
+      groups.get(r.category).push(r);
+    }
+    const html = [...groups.entries()].map(([cat, items]) => `
+      <h3 class="cat" data-cat="${esc(cat)}">${esc(cat)} <small style="color:var(--muted);font-weight:normal">${items.length} 条</small></h3>
+      ${items.map((r) => `
+        <div class="row" data-key="${esc((r.category + " " + r.field + " " + r.value + " " + (r.source || "")).toLowerCase())}">
+          <div class="f">${esc(r.field)}</div>
+          <div class="v">${esc(r.value)}</div>
+          <span class="s" title="${esc(r.source || "")}">${esc(r.source || "未注明")}</span>
+        </div>`).join("")}
+    `).join("");
+    box.insertAdjacentHTML("beforeend", `
+      <section class="card" data-section>
+        <h2>${esc(section)} <span class="n">${records.length} 条</span></h2>
+        ${html}
+      </section>`);
+  }
+  $("#toolbar").classList.remove("hidden");
+  bindSearch();
+}
+
+function bindSearch() {
+  const input = $("#q");
+  const count = $("#count");
+  const rows = [...document.querySelectorAll(".row")];
+  const total = rows.length;
+  const apply = () => {
+    const kw = input.value.trim().toLowerCase();
+    let visible = 0;
+    rows.forEach((row) => {
+      const hit = !kw || row.dataset.key.includes(kw);
+      row.classList.toggle("hide", !hit);
+      if (hit) visible++;
+    });
+    // 隐藏无匹配的类别标题与板块卡片
+    document.querySelectorAll("[data-section]").forEach((card) => {
+      let any = false;
+      card.querySelectorAll(".row").forEach((r) => { if (!r.classList.contains("hide")) any = true; });
+      card.classList.toggle("hide", !any);
+      card.querySelectorAll("h3.cat").forEach((h) => {
+        let n = 0;
+        let el = h.nextElementSibling;
+        while (el && el.classList.contains("row")) {
+          if (!el.classList.contains("hide")) n++;
+          el = el.nextElementSibling;
+        }
+        h.classList.toggle("hide", n === 0);
+      });
+    });
+    count.textContent = kw ? `匹配 ${visible} / ${total} 条` : `共 ${total} 条`;
+  };
+  input.addEventListener("input", apply);
+  apply();
+}
+
+(async () => {
+  try {
+    const list = await getJSON(`${API}/api/v1/artifacts`);
+    if (!list.length) throw new Error("API 返回空列表");
+    const detail = await getJSON(`${API}/api/v1/artifacts/${encodeURIComponent(list[0].id)}`);
+    render(detail);
+  } catch (e) {
+    $("#loading").classList.add("hidden");
+    const el = $("#error");
+    el.classList.remove("hidden");
+    el.innerHTML = `无法连接 API（${esc(API)}）：${esc(e.message)}<br>请先启动服务：<code>py -m uvicorn main:app --port 8000</code>`;
+  }
+})();
+</script>
+</body>
+</html>

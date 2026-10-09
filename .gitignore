@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# 无需上传的本地文件（API 运行只依赖 data/ 与代码文件）
+方案/
+*.xlsx
+*.jpeg
+*.jpg
+*.png
+*.docx
+
+# IDE / 系统
+.idea/
+.vscode/
+.DS_Store

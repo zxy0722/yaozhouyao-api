@@ -1,0 +1,9 @@
+# Render 蓝图：导入仓库后自动按此配置构建部署
+services:
+  - type: web
+    name: yaozhou-kiln-api
+    runtime: docker
+    plan: free
+    region: singapore
+    healthCheckPath: /health
+    autoDeploy: true

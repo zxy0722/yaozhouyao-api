@@ -1,0 +1,826 @@
+{
+  "generated_at": "2026-10-03",
+  "source_file": "耀州窑青釉刻花瓶_数据集.xlsx",
+  "artifact": {
+    "id": "artifact-00143910",
+    "name": "耀州窑青釉刻花瓶",
+    "inventory_number": "新00143910",
+    "dynasty": "北宋",
+    "kiln": "耀州窑",
+    "museum": "故宫博物院",
+    "dimensions_cm": {
+      "height": 19.9,
+      "mouth": 6.9,
+      "foot": 7.8
+    },
+    "process_steps": [
+      "采料",
+      "精选",
+      "风化",
+      "配比",
+      "粑泥",
+      "陈腐",
+      "熟泥",
+      "揉泥",
+      "拉坯",
+      "修坯",
+      "釉料制备",
+      "施釉",
+      "装饰",
+      "窑具制作",
+      "装窑",
+      "烧窑",
+      "出窑"
+    ],
+    "burn_temperature_c": {
+      "min": 1280.0,
+      "max": 1300.0
+    },
+    "record_count": 87
+  },
+  "records": [
+    {
+      "id": 1,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "基本信息",
+      "field": "文物名称",
+      "value": "耀州窑青釉刻花瓶",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 2,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "基本信息",
+      "field": "文物编号",
+      "value": "新00143910",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 3,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "基本信息",
+      "field": "年代",
+      "value": "北宋",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 4,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "基本信息",
+      "field": "窑口",
+      "value": "耀州窑",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 5,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "基本信息",
+      "field": "收藏机构",
+      "value": "故宫博物院",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 6,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "尺寸参数",
+      "field": "通高",
+      "value": "19.9厘米",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 7,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "尺寸参数",
+      "field": "口径",
+      "value": "6.9厘米",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 8,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "尺寸参数",
+      "field": "足径",
+      "value": "7.8厘米",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 9,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "器型结构",
+      "field": "口部",
+      "value": "平口出沿（小平口出沿）",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 10,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "器型结构",
+      "field": "颈部",
+      "value": "短直颈",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 11,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "器型结构",
+      "field": "肩部",
+      "value": "丰肩",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 12,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "器型结构",
+      "field": "腹部",
+      "value": "腹以下渐收敛",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 13,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "器型结构",
+      "field": "足部",
+      "value": "隐圈足（圈足）",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 14,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "器型结构",
+      "field": "肩部弦纹",
+      "value": "弦纹3道",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 15,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "釉色胎质",
+      "field": "釉色",
+      "value": "青釉（橄榄绿，青中带绿）",
+      "source": "陕西考古博物馆/耀州窑研究"
+    },
+    {
+      "id": 16,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "釉色胎质",
+      "field": "釉面质感",
+      "value": "晶莹温润，玻璃质感强，半透明",
+      "source": "耀州窑址发掘报告"
+    },
+    {
+      "id": 17,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "釉色胎质",
+      "field": "釉层",
+      "value": "匀净；较一般青瓷厚，透明度较弱；含密集微小气泡",
+      "source": "Koh-antique 耀州窑研究"
+    },
+    {
+      "id": 18,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "釉色胎质",
+      "field": "胎色",
+      "value": "灰白（北宋典型）",
+      "source": "耀州窑址考古"
+    },
+    {
+      "id": 19,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "釉色胎质",
+      "field": "胎质",
+      "value": "细腻致密，胎薄质坚，不吸水",
+      "source": "陕西省地方志办公室"
+    },
+    {
+      "id": 20,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "釉色胎质",
+      "field": "含铁量",
+      "value": "较高（胎土富含氧化铁，强还原焰烧造后胎呈灰/黑灰色）",
+      "source": "耀州窑青瓷研究"
+    },
+    {
+      "id": 21,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "釉色胎质",
+      "field": "圈足姜黄",
+      "value": "圈足周围因胎含铁高＋煤窑氧化呈现姜黄色，为耀州青瓷标志",
+      "source": "澎湃·观复博物馆"
+    },
+    {
+      "id": 22,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "艺术效果",
+      "field": "积釉效果",
+      "value": "刻线处积釉色深，凸起处色较浅",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 23,
+      "artifact_id": "artifact-00143910",
+      "section": "文物本体参数",
+      "category": "艺术效果",
+      "field": "图案效果",
+      "value": "花纹清晰，有立体图案效果",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 24,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "工艺流程",
+      "field": "总工序数",
+      "value": "共17道：采料→精选→风化→配比→粑泥→陈腐→熟泥→揉泥→拉坯→修坯→釉料制备→施釉→装饰→窑具制作→装窑→烧窑→出窑",
+      "source": "耀州窑传统工艺研究"
+    },
+    {
+      "id": 25,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "工艺流程",
+      "field": "原料制备",
+      "value": "瓷土采自黄堡镇附近二叠纪鸽青色及红黄色页岩，风化后使用；釉药为奥陶纪石灰岩中夹页岩，产自富平明月山",
+      "source": "《同官县志·矿物志》"
+    },
+    {
+      "id": 26,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "工艺流程",
+      "field": "陈腐练泥",
+      "value": "经采料、精选、风化、配比、粑泥、陈腐、熟泥、揉泥等工序",
+      "source": "耀州窑传统工艺研究"
+    },
+    {
+      "id": 27,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "工艺流程",
+      "field": "成型方式",
+      "value": "手工拉坯修坯（转轮就制，'方圆大小，皆中规矩'）",
+      "source": "北宋元丰七年《德应侯碑》"
+    },
+    {
+      "id": 28,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "装饰工艺",
+      "field": "装饰技法",
+      "value": "刻花（斜刀深刻，'半刀泥'技法）",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 29,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "装饰工艺",
+      "field": "刻花工序",
+      "value": "两步走：①斜刃直刀垂直深入行刀勾刻主轮廓；②下斜式行刀广削去胎，凸出花纹呈浮雕感",
+      "source": "耀州窑考古发掘报告"
+    },
+    {
+      "id": 30,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "装饰工艺",
+      "field": "细部处理",
+      "value": "用多齿篦形工具在凸突主轮廓内勾划花瓣纹理与叶脉（划花配合）",
+      "source": "禚振西《耀州窑青瓷的考古发现与鉴定》"
+    },
+    {
+      "id": 31,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "装饰工艺",
+      "field": "刻工特征",
+      "value": "刀锋犀利，斜刀深刻",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 32,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "装饰工艺",
+      "field": "工艺美誉",
+      "value": "'巧如范金，精比琢玉'；'刀刀见泥'；'宋代青瓷刻花之冠'",
+      "source": "北宋《德应侯碑》/陕西考古博物馆"
+    },
+    {
+      "id": 33,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "装饰工艺",
+      "field": "主体纹饰",
+      "value": "腹部满刻缠枝牡丹花",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 34,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "装饰工艺",
+      "field": "近足纹饰",
+      "value": "刻双层莲瓣纹",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 35,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "装饰工艺",
+      "field": "牡丹纹特征",
+      "value": "花繁而不乱，花冠丰满，俯仰结合",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 36,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "装饰工艺",
+      "field": "施釉方法",
+      "value": "胎釉间施化妆土，通体施青釉，蘸釉或荡釉法",
+      "source": "陕西省地方志·耀州窑遗址"
+    },
+    {
+      "id": 37,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "工艺流程",
+      "field": "装烧工艺",
+      "value": "匣钵内单件仰烧；或先素烧、上釉后再装烧的二次烧成法",
+      "source": "耀州窑址考古发掘"
+    },
+    {
+      "id": 38,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "工艺流程",
+      "field": "窑炉类型",
+      "value": "馒头窑（马蹄形），耐火砖砌筑，由火膛、窑门、窑室、烟囱四部分组成",
+      "source": "耀州窑遗址发掘"
+    },
+    {
+      "id": 39,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "工艺流程",
+      "field": "窑炉尺寸",
+      "value": "窑室宽约2.16米、长约3.36米，每窑可装约2590个匣钵",
+      "source": "陕西省地方志办公室"
+    },
+    {
+      "id": 40,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "工艺流程",
+      "field": "燃料",
+      "value": "煤（北宋始以煤代柴，提升烧成温度）",
+      "source": "耀州窑考古"
+    },
+    {
+      "id": 41,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "工艺流程",
+      "field": "烧成温度",
+      "value": "1280℃–1300℃",
+      "source": "耀州窑址考古报告"
+    },
+    {
+      "id": 42,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "工艺流程",
+      "field": "烧成气氛",
+      "value": "由氧化焰转还原焰，烧出青绿光泽",
+      "source": "耀州窑遗址发掘"
+    },
+    {
+      "id": 43,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "工艺流程",
+      "field": "成品率",
+      "value": "约70%（无烟熏、烧生、开裂、变形）",
+      "source": "陕西省地方志·耀州窑遗址"
+    },
+    {
+      "id": 44,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "纹饰寓意",
+      "field": "牡丹富贵",
+      "value": "宋代牡丹称'富贵花'，象征繁荣昌盛、富贵吉祥",
+      "source": "《生活美学视域下宋代耀州窑陶瓷审美研究》"
+    },
+    {
+      "id": 45,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "纹饰寓意",
+      "field": "唐风延续",
+      "value": "唐都长安提倡种植牡丹，宋延续此风，达官贵人与百姓皆喜观赏",
+      "source": "同上"
+    },
+    {
+      "id": 46,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "纹饰寓意",
+      "field": "缠枝寓意",
+      "value": "缠枝构图象征生生不息、子孙绵延、福禄绵长",
+      "source": "耀州窑纹饰研究"
+    },
+    {
+      "id": 47,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "纹饰寓意",
+      "field": "莲瓣佛教遗韵",
+      "value": "双层莲瓣纹源于南北朝佛教纹样，象征清净高洁",
+      "source": "故宫博物院陶瓷研究"
+    },
+    {
+      "id": 48,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "纹饰寓意",
+      "field": "弦纹作用",
+      "value": "肩部3道弦纹分隔颈、肩、腹三段，起界格与韵律作用",
+      "source": "耀州窑器型研究"
+    },
+    {
+      "id": 49,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "纹饰寓意",
+      "field": "因器施图",
+      "value": "'纹饰和器物造型相统一'，瓶类结合腹部凸起处主体构图",
+      "source": "故宫博物院《陶瓷鉴赏》"
+    },
+    {
+      "id": 50,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "纹饰寓意",
+      "field": "题材类别",
+      "value": "北宋耀州窑常见牡丹、莲、菊、梅、卷草等，牡丹运用最广",
+      "source": "《宋代耀州青瓷装饰纹样研究》"
+    },
+    {
+      "id": 51,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "纹饰寓意",
+      "field": "龙凤题材",
+      "value": "龙凤纹为宫廷瓷器专用题材，民间不得使用",
+      "source": "陈炉古镇陶瓷文化介绍"
+    },
+    {
+      "id": 52,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "窑口背景",
+      "field": "创烧年代",
+      "value": "唐代（黄堡窑场，初名'黄堡窑'）",
+      "source": "陕西省地方志·耀州窑遗址"
+    },
+    {
+      "id": 53,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "窑口背景",
+      "field": "鼎盛年代",
+      "value": "北宋（960–1127），尤以北宋中期刻花技法成熟",
+      "source": "耀州窑址考古"
+    },
+    {
+      "id": 54,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "窑口背景",
+      "field": "更名缘由",
+      "value": "宋代黄堡划归耀州同官县治，窑以地名，故名'耀州窑'",
+      "source": "《耀州窑址》百科"
+    },
+    {
+      "id": 55,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "窑口背景",
+      "field": "窑址位置",
+      "value": "今陕西铜川黄堡镇一带，宋代属耀州",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 56,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "窑口背景",
+      "field": "窑场规模",
+      "value": "黄堡镇沿漆水河两岸密集布陈，史称'十里陶坊'；窑址范围长达5公里",
+      "source": "《耀州窑〈缠枝纹瓶〉》"
+    },
+    {
+      "id": 57,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "窑口背景",
+      "field": "窑场分布",
+      "value": "中心窑场黄堡镇；另有立地坡、上店村、陈炉镇、玉华村等，绵延百里",
+      "source": "陕西省地方志"
+    },
+    {
+      "id": 58,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "贡瓷历史",
+      "field": "贡瓷烧造",
+      "value": "宋神宗元丰（1078–1085）至徽宗崇宁（1102–1106）年间，曾为朝廷烧制贡瓷",
+      "source": "新华网/《宋史·地理志》"
+    },
+    {
+      "id": 59,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "窑神封号",
+      "field": "德应侯",
+      "value": "熙宁年间（1068–1077）耀州太守阎充国奏请，宋神宗封黄堡山神为'德应侯'——中国唯一皇封窑神",
+      "source": "北宋元丰七年《德应侯碑》"
+    },
+    {
+      "id": 60,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "窑神碑",
+      "field": "《德应侯碑》",
+      "value": "立于元丰七年（1084）九月十八日，张隆撰书并题额；1974年移藏西安碑林博物馆，国家一级文物",
+      "source": "西安碑林博物馆"
+    },
+    {
+      "id": 61,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "碑文赞语",
+      "field": "范金琢玉",
+      "value": "'巧如范金，精比琢玉……击其声铿铿如也，视其色温温如也'",
+      "source": "《德应侯碑》碑文"
+    },
+    {
+      "id": 62,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "地理交通",
+      "field": "京畿近镇",
+      "value": "铜川唐时为长安京畿近镇，距长安约100余公里，近丝绸之路起点",
+      "source": "《耀州窑的地域文化》"
+    },
+    {
+      "id": 63,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "窑系影响",
+      "field": "耀州窑系",
+      "value": "影响河南宜阳、宝丰、新安城关，广东广州西村，广西永福，内乡大窑店等窑场",
+      "source": "《耀州窑址》百科"
+    },
+    {
+      "id": 64,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "外销证据",
+      "field": "海外出土",
+      "value": "非洲一些国家出土耀州瓷文物，为通过古丝绸之路外销之明证",
+      "source": "新华网 2018-03-01"
+    },
+    {
+      "id": 65,
+      "artifact_id": "artifact-00143910",
+      "section": "工艺·纹饰·历史背景",
+      "category": "鼎盛背景",
+      "field": "北宋中期断代",
+      "value": "北宋中期（仁宗至神宗，1023–1085）为刻花全盛期，器类大增，胎薄釉匀，纹饰满布器内外",
+      "source": "耀州窑址考古报告"
+    },
+    {
+      "id": 66,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "同期对比",
+      "field": "与定窑对比",
+      "value": "定窑'双刀一次完成'；耀州窑'单刀两步走'，斜削面比定窑宽",
+      "source": "人民网《古陶瓷装饰手法四大类》"
+    },
+    {
+      "id": 67,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "同期对比",
+      "field": "与越窑关系",
+      "value": "五代始仿越窑青瓷与秘色瓷，划花风格近似，越窑对耀州窑发生过影响",
+      "source": "曾肃良《宋代耀州青瓷的纹饰风格与意义》"
+    },
+    {
+      "id": 68,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "同期对比",
+      "field": "与汝窑关系",
+      "value": "五代耀州天青釉瓷先于汝窑，对其工艺风格产生深远影响",
+      "source": "王小蒙《耀州窑天青釉瓷研究》"
+    },
+    {
+      "id": 69,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "稀缺性",
+      "field": "器类稀缺",
+      "value": "耀州窑刻花青瓷以盘、碗器皿居多，瓶类较少；本瓶为稀缺器型",
+      "source": "故宫博物院藏本说明"
+    },
+    {
+      "id": 70,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "同类存世",
+      "field": "缠枝牡丹梅瓶",
+      "value": "故宫博物院另藏'耀州窑青釉刻缠枝牡丹纹梅瓶'（宋）",
+      "source": "故宫博物院数字文物库"
+    },
+    {
+      "id": 71,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "同类存世",
+      "field": "牡丹纹执壶",
+      "value": "1989年陕西耀县出土'耀州窑青釉刻牡丹花卉纹执壶'（北宋），藏陕西耀州窑博物馆",
+      "source": "澎湃·学术"
+    },
+    {
+      "id": 72,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "同类存世",
+      "field": "套盒",
+      "value": "2009年西安蓝田吕氏家族墓地出土'耀州窑青釉刻牡丹纹套盒'（北宋），藏陕西省考古研究院",
+      "source": "澎湃·学术"
+    },
+    {
+      "id": 73,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "鉴定特征",
+      "field": "真品刀痕",
+      "value": "斜刃/平刃直刀两步走，刀锋犀利圆活；北宋晚期出现圆圜刃刀，刻纹较浅、动感圆活",
+      "source": "禚振西《后仿耀州窑瓷器的装饰鉴定》"
+    },
+    {
+      "id": 74,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "鉴定特征",
+      "field": "后仿破绽",
+      "value": "现代仿品多用90°拐角刀一次刻成，线条生硬，缺犀利圆活之美",
+      "source": "同上"
+    },
+    {
+      "id": 75,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "鉴定特征",
+      "field": "圈足姜黄",
+      "value": "圈足周围姜黄色为耀州青瓷标志性特征，可作为断代鉴识依据",
+      "source": "澎湃·观复博物馆"
+    },
+    {
+      "id": 76,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "艺术评价",
+      "field": "器型评价",
+      "value": "小口短颈衬出瓶身雍容饱满",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 77,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "艺术评价",
+      "field": "北方青瓷代表",
+      "value": "耀州窑被誉为'北方青瓷之首/代表'",
+      "source": "《宋代耀州青瓷装饰纹样研究》"
+    },
+    {
+      "id": 78,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "艺术评价",
+      "field": "刻花之冠",
+      "value": "北宋耀州窑刻花被誉为'宋代青瓷刻花之冠'",
+      "source": "西安晚报·陕西考古博物馆"
+    },
+    {
+      "id": 79,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "艺术评价",
+      "field": "风格定位",
+      "value": "构图饱满，刀法灵锐，走线洒脱，颇具北方地域色彩",
+      "source": "观复博物馆"
+    },
+    {
+      "id": 80,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "艺术评价",
+      "field": "审美取向",
+      "value": "体现宋代'尚玉'审美——青釉色与玉温润相似，受国人崇玉影响",
+      "source": "澎湃·橄榄青的韵味"
+    },
+    {
+      "id": 81,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "艺术评价",
+      "field": "总体定位",
+      "value": "为耀州窑瓷器中的精品",
+      "source": "故宫博物院"
+    },
+    {
+      "id": 82,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "文化价值",
+      "field": "制器理念",
+      "value": "'物以致用'+'制器尚象'，造型与功能统一，自然元素灵活运于器型",
+      "source": "《生活美学视域下宋代耀州窑陶瓷审美研究》"
+    },
+    {
+      "id": 83,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "文化价值",
+      "field": "生活美学",
+      "value": "'艺术生活化'与'生活艺术化'，雅俗共赏、兼容并蓄",
+      "source": "同上"
+    },
+    {
+      "id": 84,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "文化价值",
+      "field": "丝绸之路器物",
+      "value": "经丝绸之路远销海外，为中华文化传播载体",
+      "source": "新华网"
+    },
+    {
+      "id": 85,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "文博地位",
+      "field": "收藏机构等级",
+      "value": "故宫博物院（国家一级博物馆）",
+      "source": "原参数"
+    },
+    {
+      "id": 86,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "研究价值",
+      "field": "断代意义",
+      "value": "耀州窑址发掘是中国首次对古瓷窑址的大面积发掘，对北方青瓷断代有重要意义",
+      "source": "陕西省地方志"
+    },
+    {
+      "id": 87,
+      "artifact_id": "artifact-00143910",
+      "section": "对比·鉴定·价值",
+      "category": "传承现状",
+      "field": "炉火延续",
+      "value": "黄堡窑场明中期断烧，陈炉窑场延续至今近1400年，为'活着的耀州窑'",
+      "source": "陈炉古镇陶瓷文化介绍"
+    }
+  ]
+}

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 智能导览 · 耀州窑青釉刻花瓶</title>
+<style>
+  :root {
+    --ink: #2c2c28;
+    --muted: #8a887c;
+    --paper: #f3f2ea;
+    --card: #ffffff;
+    --line: #e6e4d9;
+    --celadon: #6f7d5c;
+    --celadon-deep: #37422f;
+    --celadon-soft: #eef0e6;
+    --amber: #8a6d3b;
+    --amber-soft: #f3ecdd;
+    --stage: #262b22;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font: 14px/1.7 "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  }
+  h1, h2, h3 { font-family: "Noto Serif SC", "Source Han Serif SC", "STSong", "SimSun", serif; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px 60px; }
+  .hidden { display: none !important; }
+
+  .banner {
+    background: #fdecea; color: #a33a2e; border: 1px solid #f3c8c2;
+    border-radius: 10px; padding: 14px 18px; margin: 18px 0;
+    font-size: 13px; line-height: 1.8;
+  }
+  .banner code { background: #fff; padding: 2px 6px; border-radius: 4px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: linear-gradient(150deg, #37422f 0%, #4d5c42 55%, #6f7d5c 100%);
+    color: #f2f0e6; border-radius: 0 0 26px 26px; padding: 34px 20px 30px;
+  }
+  .eyebrow { color: #c9cdbb; letter-spacing: 3px; font-size: 12px; margin-bottom: 10px; }
+  .hero h1 { font-size: 30px; letter-spacing: 2px; color: #fff; margin-bottom: 14px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .badge {
+    background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25);
+    border-radius: 999px; padding: 3px 14px; font-size: 13px; color: #f0efe3;
+  }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+  .kpi {
+    background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+    border-radius: 12px; padding: 12px 14px;
+  }
+  .kpi b { display: block; font-size: 18px; font-family: Georgia, serif; color: #fff; }
+  .kpi span { font-size: 12px; color: #cfd5c2; }
+
+  /* ---------- Tabs ---------- */
+  .tabs { display: flex; gap: 8px; margin: 22px 0 16px; position: sticky; top: 0; background: var(--paper); padding: 10px 0; z-index: 5; }
+  .tab {
+    flex: 1; text-align: center; padding: 10px 0; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--card); color: var(--muted);
+    font-size: 14px; cursor: pointer; transition: all .2s;
+  }
+  .tab.on { background: var(--celadon-deep); color: #fff; border-color: var(--celadon-deep); }
+
+  /* ---------- AI talk ---------- */
+  .talk-head { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .talk-head .dot {
+    width: 9px; height: 9px; border-radius: 50%; background: #4f8a5b;
+    box-shadow: 0 0 0 4px rgba(79,138,91,.18); animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 4px rgba(79,138,91,.18);} 50% { box-shadow: 0 0 0 7px rgba(79,138,91,.06);} }
+  .talk-head h2 { font-size: 20px; color: var(--celadon-deep); }
+  .talk-head small { color: var(--muted); }
+
+  .quick { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .chip {
+    border: 1px solid var(--line); background: var(--card); color: var(--celadon-deep);
+    border-radius: 999px; padding: 6px 15px; font-size: 13px; cursor: pointer; transition: all .15s;
+  }
+  .chip:hover { background: var(--celadon-soft); }
+
+  .askbar { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  #ask {
+    flex: 3; min-width: 200px; padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px;
+    background: var(--card); font-size: 14px; outline: none;
+  }
+  #ask:focus { border-color: var(--celadon); box-shadow: 0 0 0 3px rgba(111,125,92,.12); }
+  #voice {
+    flex: 1; min-width: 150px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 999px;
+    background: var(--card); font-size: 13px; color: var(--ink); outline: none;
+  }
+  .btn {
+    border: none; border-radius: 999px; padding: 10px 22px; font-size: 14px; cursor: pointer;
+    background: var(--celadon-deep); color: #fff; transition: all .15s; white-space: nowrap;
+  }
+  .btn:hover { filter: brightness(1.1); }
+
+  .stage {
+    background: var(--stage); color: #e8e6da; border-radius: 16px;
+    padding: 20px 22px; min-height: 160px;
+  }
+  .stage .script { font-family: "Noto Serif SC", "Source Han Serif SC", STSong, SimSun, serif; font-size: 16px; line-height: 2; white-space: pre-wrap; }
+  .mode-row { display: flex; align-items: center; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+  .mode-badge { border-radius: 999px; padding: 3px 13px; font-size: 12px; font-weight: 600; }
+  .mode-badge.llm { background: var(--amber); color: #fff; }
+  .mode-badge.tpl { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.3); color: #d8dcc9; }
+  .src-note { color: #9aa896; font-size: 12px; }
+  .stage-ctrl { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  .stage-ctrl .btn { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); color: #fff; }
+  .stage-ctrl .btn.play { background: var(--amber); border-color: var(--amber); }
+  .stage-ctrl .btn.stop { background: #a33a2e; border-color: #a33a2e; }
+  .stage-hint { color: #9aa896; font-size: 12px; margin-top: 10px; }
+
+  /* ---------- Browse ---------- */
+  .toolbar { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  #kw {
+    flex: 1; min-width: 200px; padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px;
+    background: var(--card); font-size: 14px; outline: none;
+  }
+  #kw:focus { border-color: var(--celadon); box-shadow: 0 0 0 3px rgba(111,125,92,.12); }
+  .count { color: var(--muted); font-size: 13px; align-self: center; }
+
+  .catbar { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
+  .cat {
+    border: 1px solid var(--line); background: var(--card); color: var(--muted);
+    border-radius: 999px; padding: 4px 13px; font-size: 12.5px; cursor: pointer; transition: all .15s;
+  }
+  .cat.on { background: var(--celadon-deep); color: #fff; border-color: var(--celadon-deep); }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 22px 24px; margin-bottom: 16px;
+  }
+  .card > h2 { font-size: 18px; color: var(--celadon-deep); display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  .card > h2::before { content: ""; width: 4px; height: 17px; background: var(--celadon); border-radius: 2px; }
+  .card > h2 .n { font-size: 12px; color: var(--muted); font-family: sans-serif; font-weight: normal; }
+
+  h3.cat { font-size: 14px; color: var(--celadon); margin: 16px 0 4px; }
+  .row {
+    display: grid; grid-template-columns: 130px 1fr auto; gap: 14px; align-items: baseline;
+    padding: 9px 0; border-bottom: 1px dashed var(--line);
+  }
+  .row:last-child { border-bottom: none; }
+  .row .f { color: var(--celadon-deep); font-weight: 600; font-size: 13px; }
+  .row .v { font-size: 14px; }
+  .row .s {
+    background: var(--amber-soft); color: var(--amber); border-radius: 999px;
+    padding: 1px 10px; font-size: 12px; white-space: nowrap; max-width: 220px;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .row.hide, h3.cat.hide, .card.hide { display: none; }
+
+  /* ---------- Stats ---------- */
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .stat {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px;
+  }
+  .stat b { display: block; font-size: 24px; font-family: Georgia, serif; color: var(--celadon-deep); }
+  .stat span { font-size: 12px; color: var(--muted); }
+  .bars { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px; margin-bottom: 16px; }
+  .bars h3 { font-size: 15px; color: var(--celadon-deep); margin-bottom: 12px; }
+  .bar-row { display: grid; grid-template-columns: 110px 1fr 40px; gap: 10px; align-items: center; margin-bottom: 8px; font-size: 13px; }
+  .bar-track { height: 10px; background: var(--celadon-soft); border-radius: 999px; overflow: hidden; }
+  .bar-fill { height: 100%; background: linear-gradient(90deg, var(--celadon), var(--amber)); border-radius: 999px; }
+  .bar-row .num { color: var(--muted); text-align: right; }
+
+  /* ---------- Deploy（扫码访问） ---------- */
+  .qr-wrap { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  .qr-img {
+    width: 190px; height: 190px; border: 8px solid #fff; border-radius: 12px;
+    background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.08); flex-shrink: 0;
+  }
+  .qr-side { flex: 1; min-width: 220px; }
+  .qr-url { font-family: Consolas, "Courier New", monospace; font-size: 16px; color: var(--celadon-deep); word-break: break-all; font-weight: 600; }
+  .hint { color: var(--muted); font-size: 12.5px; margin-top: 8px; line-height: 1.9; }
+  .hint code, .steps-list code {
+    background: var(--celadon-soft); color: var(--celadon-deep);
+    padding: 1px 7px; border-radius: 5px; font-size: 12px;
+  }
+  .steps-list { margin-left: 20px; line-height: 2.3; font-size: 14px; }
+  .steps-list li { margin-bottom: 6px; }
+
+  .foot { color: var(--muted); font-size: 12px; text-align: center; margin-top: 36px; line-height: 2; }
+  .loading { color: var(--muted); text-align: center; padding: 60px 0; }
+
+  @media (max-width: 640px) {
+    .row { grid-template-columns: 1fr; gap: 2px; padding: 11px 0; }
+    .row .s { justify-self: start; }
+    .hero h1 { font-size: 24px; }
+    .tabs { position: static; flex-wrap: wrap; }
+    .tab { flex: 1 1 40%; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="loading" id="loading">正在连接知识 API 并加载文物数据…</p>
+  <div id="error" class="banner hidden"></div>
+
+  <header id="hero" class="hero hidden">
+    <p class="eyebrow">故宫博物院 · 数字化展厅 · AI 智能导览</p>
+    <h1 id="art-name">耀州窑青釉刻花瓶</h1>
+    <div id="badges" class="badges"></div>
+    <div id="kpis" class="kpis"></div>
+  </header>
+
+  <nav id="tabs" class="tabs hidden">
+    <div class="tab on" data-tab="talk">AI 讲解</div>
+    <div class="tab" data-tab="browse">文物档案</div>
+    <div class="tab" data-tab="stats">数据看板</div>
+    <div class="tab" data-tab="deploy">扫码访问</div>
+  </nav>
+
+  <!-- Tab 1: AI 讲解 -->
+  <section id="pane-talk" class="pane">
+    <div class="talk-head">
+      <span class="dot"></span>
+      <h2>AI 智能讲解</h2>
+      <small>检索知识库生成讲解词 · 神经语音朗读 · 支持扫码访问</small>
+    </div>
+    <div class="quick" id="quick">
+      <button class="chip" data-q="釉色">釉色与胎质</button>
+      <button class="chip" data-q="刻花">刻花装饰</button>
+      <button class="chip" data-q="纹饰">纹饰寓意</button>
+      <button class="chip" data-q="窑">窑口历史</button>
+      <button class="chip" data-q="鉴定">鉴定特征</button>
+      <button class="chip" data-q="价值">艺术与收藏价值</button>
+    </div>
+    <div class="askbar">
+      <input id="ask" type="search" placeholder="输入您想了解的内容，如：牡丹纹、姜黄釉、工艺流程…">
+      <select id="voice" title="讲解音色">
+        <option value="zh-CN-XiaoxiaoNeural">晓晓 · 女声（温暖）</option>
+        <option value="zh-CN-YunxiNeural">云希 · 男声（沉稳）</option>
+        <option value="zh-CN-YunyangNeural">云扬 · 男声（播音）</option>
+      </select>
+      <button class="btn" id="askBtn">开始讲解</button>
+    </div>
+    <div class="stage">
+      <div class="stage-hint" id="stageHint">点击上方问题，或输入关键词，AI 将为您生成讲解词。</div>
+      <div id="scriptBox" class="hidden"></div>
+      <div class="stage-ctrl hidden" id="stageCtrl">
+        <button class="btn play" id="playBtn">播放讲解</button>
+        <button class="btn stop" id="stopBtn">停止播放</button>
+      </div>
+      <div class="stage-hint" id="speakHint"></div>
+    </div>
+  </section>
+
+  <!-- Tab 2: 文物档案 -->
+  <section id="pane-browse" class="pane hidden">
+    <div class="toolbar">
+      <input id="kw" type="search" placeholder="搜索字段 / 描述 / 来源，如：牡丹、刻花、姜黄…">
+      <span class="count" id="count"></span>
+    </div>
+    <div class="catbar" id="catbar"></div>
+    <div id="sections"></div>
+  </section>
+
+  <!-- Tab 3: 数据看板 -->
+  <section id="pane-stats" class="pane hidden">
+    <div class="stat-grid" id="statGrid"></div>
+    <div class="bars" id="barSections"></div>
+    <div class="bars" id="barCategories"></div>
+    <div class="bars" id="barSources"></div>
+  </section>
+
+  <!-- Tab 4: 扫码访问（部署） -->
+  <section id="pane-deploy" class="pane hidden">
+    <div class="card">
+      <h2>扫码访问导览页 <span class="n">展厅 Wi-Fi 即扫即用</span></h2>
+      <div class="qr-wrap">
+        <img id="qrImg" class="qr-img" alt="导览页二维码">
+        <div class="qr-side">
+          <p class="qr-url" id="lanUrl">正在检测访问地址…</p>
+          <p class="hint">手机与电脑连接同一 Wi-Fi，扫码即可打开本页，获得 AI 讲解 + 语音导览。</p>
+          <p class="hint">服务需以 <code>--host 0.0.0.0</code> 启动（见下方部署三步）；二维码由服务实时生成，部署到任何服务器都会自动更新为对应地址。</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>部署三步</h2>
+      <ol class="steps-list">
+        <li><b>本机运行</b>：<code>py -m uvicorn main:app --host 0.0.0.0 --port 8000</code>，浏览器打开 <code>http://127.0.0.1:8000/guide</code></li>
+        <li><b>局域网（展厅 Wi-Fi）</b>：手机直接扫码上方二维码即可访问</li>
+        <li><b>公网服务器</b>：项目根目录已含 <code>Dockerfile</code>，执行 <code>docker compose up -d --build</code> 一键上线</li>
+      </ol>
+      <p class="hint">讲解引擎：默认「知识库模板」；配置环境变量 <code>LLM_BASE_URL / LLM_API_KEY / LLM_MODEL</code>（任意 OpenAI 兼容大模型）后自动升级为「大模型润色」。语音使用微软神经语音（免密钥）。详见项目内《部署指南.md》。</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    数据接口 /api/v1 · 讲解 / 语音 / 二维码由本服务实时生成 · 数据来源：故宫博物院 · 陕西省地方志办公室 · 耀州窑考古研究 等公开资料
+  </footer>
+</div>
+
+<script>
+/* API 地址自适应：经 http 访问时同源（部署形态）；file:// 打开时回退本机 8000 */
+const _p0 = new URLSearchParams(location.search);
+const API = _p0.get("api")
+  || (location.protocol === "http:" || location.protocol === "https:" ? "" : "http://127.0.0.1:8000");
+
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => [...document.querySelectorAll(sel)];
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, (c) => (
+    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+  ));
+}
+
+async function getJSON(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(url + " -> " + res.status);
+  const body = await res.json();
+  if (body.code !== 0) throw new Error(body.message);
+  return body.data;
+}
+
+const SECTION_OPEN = {
+  "文物本体参数": "先从这件文物的形貌说起——",
+  "工艺·纹饰·历史背景": "再看它的工艺与故事——",
+  "对比·鉴定·价值": "最后从鉴定与价值的角度——",
+};
+
+/* ---------- Tab 切换 ---------- */
+const TABS = ["talk", "browse", "stats", "deploy"];
+
+function selectTab(name) {
+  if (!TABS.includes(name)) name = "talk";
+  $$(".tab").forEach((t) => t.classList.toggle("on", t.dataset.tab === name));
+  TABS.forEach((n) => $("#pane-" + n).classList.toggle("hidden", n !== name));
+}
+
+function bindTabs() {
+  $$(".tab").forEach((t) => t.addEventListener("click", () => selectTab(t.dataset.tab)));
+}
+
+/* ---------- AI 讲解（narrate：LLM 润色，模板兜底） ---------- */
+const MODE_LABEL = { llm: "大模型润色讲解", template: "知识库讲解" };
+
+function stopAllAudio() {
+  if (window.__audio) {
+    try { window.__audio.pause(); } catch (e) {}
+    if (window.__audio.src && window.__audio.src.startsWith("blob:")) {
+      URL.revokeObjectURL(window.__audio.src);
+    }
+    window.__audio = null;
+  }
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+}
+
+async function ask(q) {
+  if (!q) return;
+  $("#ask").value = q;
+  $("#stageCtrl").classList.add("hidden");
+  $("#scriptBox").classList.add("hidden");
+  $("#stageHint").classList.remove("hidden");
+  $("#stageHint").textContent = "讲解员正在组织语言…";
+  stopAllAudio();
+  $("#speakHint").textContent = "";
+  try {
+    const data = await getJSON(`${API}/api/v1/narrate?q=${encodeURIComponent(q)}&limit=20`);
+    $("#stageHint").classList.add("hidden");
+    if (!data.hit_count || !data.script) {
+      $("#scriptBox").innerHTML = `<div class="script">抱歉，知识库中没有找到与「${esc(q)}」相关的内容。换个关键词试试：釉色、刻花、纹饰、窑口、鉴定、价值。</div>`;
+      $("#scriptBox").classList.remove("hidden");
+      return;
+    }
+    window.__script = data.script;
+    const isLlm = data.mode === "llm";
+    const srcText = (data.sources && data.sources.length) ? data.sources.join(" · ") : "公开资料";
+    $("#scriptBox").innerHTML = `
+      <div class="script">${esc(data.script)}</div>
+      <div class="mode-row">
+        <span class="mode-badge ${isLlm ? "llm" : "tpl"}">${esc(MODE_LABEL[data.mode] || MODE_LABEL.template)}</span>
+        <span class="src-note">依据 ${data.hit_count} 条知识 · 来源：${esc(srcText)}</span>
+      </div>`;
+    $("#scriptBox").classList.remove("hidden");
+    $("#stageCtrl").classList.remove("hidden");
+  } catch (e) {
+    $("#stageHint").classList.remove("hidden");
+    $("#stageHint").textContent = "生成失败：" + e.message;
+  }
+}
+
+/* ---------- 语音播放（微软神经语音优先，浏览器语音兜底） ---------- */
+function browserSpeak(text) {
+  if (!("speechSynthesis" in window)) {
+    $("#speakHint").textContent = "在线语音不可用，且当前浏览器不支持语音合成。";
+    return;
+  }
+  const clean = text.replace(/【[^】]*】/g, "").replace(/（[^）]*）/g, "");
+  const u = new SpeechSynthesisUtterance(clean);
+  u.lang = "zh-CN";
+  u.rate = 0.92;
+  const zh = window.speechSynthesis.getVoices().find((v) => v.lang && v.lang.toLowerCase().startsWith("zh"));
+  if (zh) u.voice = zh;
+  window.speechSynthesis.speak(u);
+  $("#speakHint").textContent = "在线语音不可用，已切换浏览器语音朗读…";
+  u.onend = () => { $("#speakHint").textContent = "朗读完成。"; };
+  u.onerror = () => { $("#speakHint").textContent = "朗读中断。"; };
+}
+
+async function playNarration() {
+  const script = window.__script;
+  if (!script) return;
+  const voice = $("#voice").value;
+  const spoken = script
+    .replace(/【[^】]*】/g, "")
+    .replace(/（[^）]*）/g, "")
+    .replace(/\n{2,}/g, "\n")
+    .slice(0, 1900)
+    .trim();
+  $("#speakHint").textContent = "正在合成神经语音…";
+  try {
+    const res = await fetch(`${API}/api/v1/tts`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: spoken, voice }),
+    });
+    if (!res.ok) throw new Error("tts HTTP " + res.status);
+    const blob = await res.blob();
+    if (!blob.size) throw new Error("empty audio");
+    stopAllAudio();
+    const audio = new Audio(URL.createObjectURL(blob));
+    window.__audio = audio;
+    audio.onended = () => { $("#speakHint").textContent = "播放完成。"; };
+    audio.onerror = () => browserSpeak(script);
+    await audio.play();
+    $("#speakHint").textContent = "正在播放（微软神经语音）…";
+  } catch (e) {
+    browserSpeak(script);
+  }
+}
+
+function bindTalk() {
+  $$("#quick .chip").forEach((c) => {
+    c.addEventListener("click", () => ask(c.dataset.q));
+  });
+  $("#askBtn").addEventListener("click", () => ask($("#ask").value.trim()));
+  $("#ask").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") ask($("#ask").value.trim());
+  });
+  $("#playBtn").addEventListener("click", playNarration);
+  $("#stopBtn").addEventListener("click", () => {
+    stopAllAudio();
+    $("#speakHint").textContent = "已停止播放。";
+  });
+}
+
+/* ---------- 文物档案 ---------- */
+let browseData = null;
+
+function renderBrowse() {
+  const detail = browseData.detail;
+  const categories = browseData.categories;
+
+  const catbar = $("#catbar");
+  catbar.innerHTML = `<span class="cat on" data-cat="">全部（${detail.record_count}）</span>` +
+    categories.map((c) =>
+      `<span class="cat" data-cat="${esc(c.category)}">${esc(c.category)} ${c.count}</span>`
+    ).join("");
+  catbar.querySelectorAll(".cat").forEach((el) => {
+    el.addEventListener("click", () => {
+      catbar.querySelectorAll(".cat").forEach((x) => x.classList.remove("on"));
+      el.classList.add("on");
+      applyFilter();
+    });
+  });
+
+  const box = $("#sections");
+  box.innerHTML = "";
+  for (const [section, records] of Object.entries(detail.records_by_section)) {
+    const groups = new Map();
+    for (const r of records) {
+      if (!groups.has(r.category)) groups.set(r.category, []);
+      groups.get(r.category).push(r);
+    }
+    const html = [...groups.entries()].map(([cat, items]) => `
+      <h3 class="cat" data-cat="${esc(cat)}">${esc(cat)} <small style="color:var(--muted);font-weight:normal">${items.length} 条</small></h3>
+      ${items.map((r) => `
+        <div class="row" data-cat="${esc(r.category)}" data-key="${esc((r.category + " " + r.field + " " + r.value + " " + (r.source || "")).toLowerCase())}">
+          <div class="f">${esc(r.field)}</div>
+          <div class="v">${esc(r.value)}</div>
+          <span class="s" title="${esc(r.source || "")}">${esc(r.source || "未注明")}</span>
+        </div>`).join("")}
+    `).join("");
+    box.insertAdjacentHTML("beforeend", `
+      <section class="card" data-sec="${esc(section)}">
+        <h2>${esc(section)} <span class="n">${records.length} 条</span></h2>
+        ${html}
+      </section>`);
+  }
+
+  const input = $("#kw");
+  const count = $("#count");
+  const apply = () => {
+    const kw = input.value.trim().toLowerCase();
+    const activeCat = catbar.querySelector(".cat.on")?.dataset.cat || "";
+    let visible = 0;
+    $$(".row").forEach((row) => {
+      const hitKw = !kw || row.dataset.key.includes(kw);
+      const hitCat = !activeCat || row.dataset.cat === activeCat;
+      const show = hitKw && hitCat;
+      row.classList.toggle("hide", !show);
+      if (show) visible++;
+    });
+    $$("[data-sec]").forEach((card) => {
+      let any = false;
+      card.querySelectorAll(".row").forEach((r) => { if (!r.classList.contains("hide")) any = true; });
+      card.classList.toggle("hide", !any);
+      card.querySelectorAll("h3.cat").forEach((h) => {
+        let n = 0;
+        let el = h.nextElementSibling;
+        while (el && el.classList.contains("row")) {
+          if (!el.classList.contains("hide")) n++;
+          el = el.nextElementSibling;
+        }
+        h.classList.toggle("hide", n === 0);
+      });
+    });
+    count.textContent = (kw || activeCat) ? `匹配 ${visible} / ${detail.record_count} 条` : `共 ${detail.record_count} 条`;
+  };
+  input.addEventListener("input", apply);
+  window.__applyFilter = apply;
+  apply();
+}
+
+function applyFilter() {
+  window.__applyFilter && window.__applyFilter();
+}
+
+/* ---------- 数据看板 ---------- */
+function renderStats(stats) {
+  const g = $("#statGrid");
+  const cards = [
+    ["文物藏品（件）", stats.artifact_count],
+    ["知识条目（条）", stats.record_count],
+    ["内容板块", stats.sections.length],
+    ["数据类别", stats.categories.length],
+    ["主要资料来源", stats.top_sources.length],
+  ];
+  g.innerHTML = cards.map(([label, value]) =>
+    `<div class="stat"><b>${esc(value)}</b><span>${esc(label)}</span></div>`
+  ).join("");
+
+  const bar = (title, rows, label) => {
+    const max = Math.max(...rows.map((r) => r.count), 1);
+    return `<h3>${esc(title)}</h3>` +
+      rows.map((r) => {
+        const pct = Math.round((r.count / max) * 100);
+        return `<div class="bar-row"><span>${esc(label(r))}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div><span class="num">${r.count}</span></div>`;
+      }).join("");
+  };
+  $("#barSections").innerHTML = bar("板块记录分布", stats.sections, (r) => r.section);
+  $("#barCategories").innerHTML = bar("类别记录分布", stats.categories, (r) => r.category);
+  $("#barSources").innerHTML = bar("主要资料来源 Top 10", stats.top_sources, (r) => r.source);
+}
+
+function kpi(value, label) {
+  return `<div class="kpi"><b>${esc(value)}</b><span>${esc(label)}</span></div>`;
+}
+
+/* ---------- 扫码访问（部署） ---------- */
+async function initDeploy() {
+  try {
+    const info = await getJSON(`${API}/api/v1/qr-info`);
+    $("#qrImg").src = "data:image/png;base64," + info.qr_png_base64;
+    $("#lanUrl").textContent = info.url;
+  } catch (e) {
+    $("#lanUrl").textContent = "二维码生成失败：" + e.message;
+    $("#qrImg").alt = "二维码不可用";
+    $("#qrImg").style.visibility = "hidden";
+  }
+}
+
+/* ---------- 初始化（带服务启动重试） ---------- */
+async function boot(attempt = 0) {
+  $("#loading").textContent = attempt
+    ? `正在等待导览服务启动…（第 ${attempt + 1} 次尝试）`
+    : "正在连接知识 API 并加载文物数据…";
+  try {
+    const list = await getJSON(`${API}/api/v1/artifacts`);
+    if (!list.length) throw new Error("API 返回空列表");
+    const a = list[0];
+    const [detail, categories, stats] = await Promise.all([
+      getJSON(`${API}/api/v1/artifacts/${encodeURIComponent(a.id)}`),
+      getJSON(`${API}/api/v1/artifacts/${encodeURIComponent(a.id)}/categories`),
+      getJSON(`${API}/api/v1/stats`),
+    ]);
+
+    $("#loading").classList.add("hidden");
+    $("#hero").classList.remove("hidden");
+    $("#tabs").classList.remove("hidden");
+
+    $("#art-name").textContent = detail.name;
+    $("#badges").innerHTML = [
+      detail.dynasty, detail.kiln, detail.museum,
+      detail.inventory_number ? "编号 " + detail.inventory_number : "",
+      detail.record_count + " 条知识条目",
+    ].filter(Boolean).map((b) => `<span class="badge">${esc(b)}</span>`).join("");
+
+    const d = detail.dimensions_cm || {};
+    const t = detail.burn_temperature_c || {};
+    $("#kpis").innerHTML = [
+      d.height != null ? kpi(d.height + " cm", "通高") : "",
+      d.mouth != null ? kpi(d.mouth + " cm", "口径") : "",
+      d.foot != null ? kpi(d.foot + " cm", "足径") : "",
+      t.min != null ? kpi(t.min + "–" + t.max + " ℃", "烧成温度") : "",
+    ].join("");
+
+    browseData = { detail, categories };
+    renderBrowse();
+    renderStats(stats);
+    bindTabs();
+    bindTalk();
+    initDeploy();
+
+    // URL 直达：?tab=deploy 打开指定页；?q=釉色 自动开始讲解（扫码深链场景）
+    const tab = _p0.get("tab");
+    if (tab) selectTab(tab);
+    const autoQ = _p0.get("q");
+    if (autoQ) {
+      selectTab("talk");
+      ask(autoQ);
+    }
+  } catch (e) {
+    if (attempt < 6) {
+      setTimeout(() => boot(attempt + 1), 1500);
+      return;
+    }
+    $("#loading").classList.add("hidden");
+    const el = $("#error");
+    el.classList.remove("hidden");
+    el.innerHTML = `无法连接知识库 API（${esc(API || "同源服务")}）：${esc(e.message)}<br>请先启动服务：<code>py -m uvicorn main:app --host 0.0.0.0 --port 8000</code>，再刷新本页。`;
+  }
+}
+
+boot();
+</script>
+</body>
+</html>
